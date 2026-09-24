@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>AI Resume Analyzer</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/style.css"
+    >
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>AI Resume Analyzer</h1>
+
+    <p class="subtitle">
+        Analyze your resume against a job description
+        using LLM and Prompt Engineering.
+    </p>
+
+
+    <form
+        action="/analyze"
+        method="post"
+        enctype="multipart/form-data"
+    >
+
+        <label for="resume">
+            Upload Resume (PDF)
+        </label>
+
+        <input
+            type="file"
+            id="resume"
+            name="resume"
+            accept=".pdf"
+            required
+        >
+
+
+        <label for="job_description">
+            Job Description
+        </label>
+
+        <textarea
+            id="job_description"
+            name="job_description"
+            rows="10"
+            placeholder="Paste the job description here..."
+            required
+        ></textarea>
+
+
+        <button type="submit">
+            Analyze Resume
+        </button>
+
+    </form>
+
+
+    {% if result %}
+
+    <div class="result">
+
+        <h2>Analysis Result</h2>
+
+        <pre>{{ result }}</pre>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+
+</html>
